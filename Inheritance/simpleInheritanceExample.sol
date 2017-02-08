@@ -1,7 +1,7 @@
 pragma solidity ^0.4.6;
 
 contract ownedByCryptoUni{
-	string public dudesName = "Crypto Uni"
+	string public uniName = "Crypto Uni"
 }
 
 contract ethereumCourse is ownedByCryptoUni{
