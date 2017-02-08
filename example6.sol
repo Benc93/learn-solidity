@@ -19,6 +19,9 @@ contract Example6{
 
 	}
 
+	// Declaring Fee variable
+	uint256 fee;
+
 	// this variable maps the ether address to the Student's name 
 	mapping(address=>Student) public myStudents;
 
@@ -34,9 +37,14 @@ contract Example6{
 			studentName: _typeYourName,
 			studentAge: _enterYourAge,
 			active: true,
-			});
-	}
 
+			});
+
+	}
+    
+    function SetRegistrationFee(uint256 _fee){
+		fee = _fee;
+	}
 	
 }
 
