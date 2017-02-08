@@ -9,6 +9,10 @@ contract ownedByCryptoUni{
 	function ownedByCryptoUni(){
 		owner = msg.sender;
 	}
+	// This function mutes the contract, as it cannot be deleted from the blockchain
+	function killTheContract(){
+		suicide(owner);
+	}
 
 
 }
