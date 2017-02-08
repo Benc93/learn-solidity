@@ -9,4 +9,5 @@ contract Example2{
 	string public one = "one";
 	int public two = 2;
 	uint public three = 3;
+	uint256 public four = 4;
 }

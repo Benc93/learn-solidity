@@ -19,14 +19,6 @@ contract Example3{
 
 	string[] public studentName;
 
-	// Constructor function for the Student Name variable: 
-
-	function Example() {
-
-		studentName[studentName.length++] = "Benny";
-		// alternatively (same same but different)...
-		studentName.push("Benny Boy");
-	}
 
 	// Ethereum-specific object called "Struct" so you can define your own object
 
