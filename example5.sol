@@ -4,7 +4,7 @@
 // must include the version requirement in order for contract code to compile
 pragma solidity ^0.4.6;
 
-contract Example4{
+contract Example5{
 
 	string[] public studentName;
 	string public one = "one";
@@ -35,13 +35,12 @@ contract Example4{
 	// Constructor function for the Student variables: 
 	function Example(){
 
-		studentName[studentName.length++] = "Dread";
-		// alternatively (same same but different)...
-		studentName.push("Pirate");
-		dreadPirate.studentName = "This is me!";
-		dreadPirate.studentAge = 31;
-		dreadPirate.studentAddress = msg.sender;
-		dreadPirate.active = true;
+		myStudents[msg.sender] = Student ({
+			studentName: "John Galt",
+			studentAge: 31,
+			active: true,
+
+			});
 
 	}
 
