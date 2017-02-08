@@ -4,7 +4,7 @@
 // must include the version requirement in order for contract code to compile
 pragma solidity ^0.4.6;
 
-contract Example6{
+contract Example7{
 
 
 	// Ethereum-specific object called "Struct" so you can define your own object
@@ -20,7 +20,7 @@ contract Example6{
 	}
 
 	// Declaring Fee variable
-	uint256 fee;
+	uint256 public fee;
 
 	// this variable maps the ether address to the Student's name 
 	mapping(address=>Student) public myStudents;
