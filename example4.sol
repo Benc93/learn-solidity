@@ -4,21 +4,13 @@
 // must include the version requirement in order for contract code to compile
 pragma solidity ^0.4.6;
 
-contract Example3{
-
-	// Examples of simple variables
-
-	string public one = "one";
-	int public two = 2;
-	// Only allows +ive integers:
-	uint public three = 3;
-	// Turns all integers into a 256bit variable:
-	uint256 public four = 4;
-
-	// Slightly more advanced variables
+contract Example4{
 
 	string[] public studentName;
-
+	string public one = "one";
+	int public two = 2;
+	uint public three = 3;
+	uint256 public four = 4;
 
 	// Ethereum-specific object called "Struct" so you can define your own object
 
@@ -34,16 +26,19 @@ contract Example3{
 
 	}
 
+	// Declaring a new viriable using the struct object above ^ :
 	Student public dreadPirate;
 
-	// Constructor function for the Student Name variable: 
-
-	function Example () {
+	// Constructor function for the Student variables: 
+	function Example(){
 
 		studentName[studentName.length++] = "Dread";
 		// alternatively (same same but different)...
 		studentName.push("Pirate");
-		dreadPirate.studentName = "This is me";
+		dreadPirate.studentName = "This is me!";
+		dreadPirate.studentAge = 31;
+		dreadPirate.studentAddress = msg.sender;
+		dreadPirate.active = true;
 
 	}
 
