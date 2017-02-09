@@ -1,4 +1,4 @@
-
+pragma solidity ^0.4.6;
 
 contract ownedByCryptoUni{
 	
@@ -9,24 +9,22 @@ contract ownedByCryptoUni{
 	function ownedByCryptoUni(){
 		owner = msg.sender;
 	}
-	// This function mutes the contract, as it cannot be deleted from the blockchain
-	function killTheContract(){
-		suicide(owner);
-	}
 
 	// Limits the use of fee setting to the contract owner in ethereumCourse
 	modifier onlyOwner{
  
-    if (msg.sender != owner){ // If the sender of the message is not the owner, throw.
- 
-      throw;
- 
-    }else{
- 
-      _;
+	    if (msg.sender != owner){ // If the sender of the message is not the owner, throw.
+	      throw;
+	    }else{ 
+	      _;
+    	 }
     }
- 
-  	}
+
+
+    // This function mutes the contract, as it cannot be deleted from the blockchain (same same)
+	function killTheContract() onlyOwner {
+		suicide(owner);
+	} 	
 }
 
 
@@ -63,8 +61,20 @@ contract ethereumCourse is ownedByCryptoUni{
 		}
 
 	}
-	// Allows contract owner to set the fee of the contract
-	function setRegistrationFee(uint256 _fee) onlyOwner {
+
+	// Adds a condition to fee setting 
+	modifier setRegistrationFeeOnlyAfter10Mins{
+
+    	if (now < 1486602822 + 10 minutes){
+    		throw;
+    	}else{
+    		_;
+    	}
+    }
+
+
+	// Allows only the contract owner to set the fee of the contract, and sets the fee only after 10 minutes
+	function setRegistrationFee(uint256 _fee) onlyOwner setRegistrationFeeOnlyAfter10Mins{
 		fee = _fee;
 	}
 
